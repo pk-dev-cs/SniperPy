@@ -1,11 +1,11 @@
 import pgzrun
 import os
 
+WIDTH = 1024
+HEIGHT = 768 
+
 enemy = Actor('enemy-128')
 enemy.topright = 0, 10
-
-WIDTH = 800
-HEIGHT = 600 
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
