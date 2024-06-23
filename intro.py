@@ -18,11 +18,14 @@ player = Actor('player-128')
 player.topright = 200, GROUND_LEVEL
 player.y = GROUND_LEVEL
 
+background = Actor('level1')
+
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 def draw():
     screen.clear()
     screen.fill((145, 160, 125))
+    background.draw()
     enemy.draw()
     player.draw()
 
