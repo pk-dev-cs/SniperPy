@@ -4,7 +4,7 @@ import os
 WIDTH = 1024
 HEIGHT = 768
 
-GROUND_LEVEL = 300
+GROUND_LEVEL = 590
 
 vertical_velocity = 0
 jump_strength = -15
