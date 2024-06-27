@@ -1,5 +1,6 @@
 import pgzrun
 import os
+from pgzhelper import *
 
 WIDTH = 1024
 HEIGHT = 768
@@ -14,7 +15,8 @@ enemy = Actor('enemy-128')
 enemy.topright = 1000, GROUND_LEVEL
 enemy.y = GROUND_LEVEL
 
-player = Actor('player-128')
+player = Actor('player')
+player.scale = 0.125
 player.topright = 200, GROUND_LEVEL
 player.y = GROUND_LEVEL
 
