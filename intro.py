@@ -3,9 +3,9 @@ import os
 from pgzhelper import *
 
 WIDTH = 1024
-HEIGHT = 768
+HEIGHT = 1024
 
-GROUND_LEVEL = 590
+GROUND_LEVEL = 790
 
 vertical_velocity = 0
 jump_strength = -15
@@ -22,6 +22,8 @@ player.topright = 200, GROUND_LEVEL
 player.y = GROUND_LEVEL
 
 background = Actor('level1')
+background.scale = 0.25
+background.topright = WIDTH, 0
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
