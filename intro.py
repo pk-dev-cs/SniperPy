@@ -3,15 +3,16 @@ import os
 from pgzhelper import *
 
 WIDTH = 1024
-HEIGHT = 768
+HEIGHT = 1024
 
-GROUND_LEVEL = 590
+GROUND_LEVEL = 790
 
 vertical_velocity = 0
 jump_strength = -15
 gravity = 0.5
 
-enemy = Actor('enemy-128')
+enemy = Actor('enemy')
+enemy.scale = 0.125
 enemy.topright = 1000, GROUND_LEVEL
 enemy.y = GROUND_LEVEL
 
@@ -21,6 +22,8 @@ player.topright = 200, GROUND_LEVEL
 player.y = GROUND_LEVEL
 
 background = Actor('level1')
+background.scale = 0.25
+background.topright = WIDTH, 0
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
@@ -28,7 +31,8 @@ def draw():
     screen.clear()
     screen.fill((145, 160, 125))
     background.draw()
-    enemy.draw()
+    if enemy:
+        enemy.draw()
     player.draw()
 
 def on_key_down(key):
@@ -38,9 +42,15 @@ def on_key_down(key):
 
 def update():
     global vertical_velocity
-    enemy.left -= 4
-    if enemy.left < 0:
-        enemy.right = WIDTH
+    global enemy
+
+    if enemy and player.colliderect(enemy):
+        enemy = None
+    
+    if enemy:
+        enemy.left -= 4
+        if enemy.left < 0:
+            enemy.right = WIDTH
 
     vertical_velocity += gravity
     player.y += vertical_velocity
