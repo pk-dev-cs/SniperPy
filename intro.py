@@ -31,7 +31,8 @@ def draw():
     screen.clear()
     screen.fill((145, 160, 125))
     background.draw()
-    enemy.draw()
+    if enemy:
+        enemy.draw()
     player.draw()
 
 def on_key_down(key):
@@ -41,9 +42,15 @@ def on_key_down(key):
 
 def update():
     global vertical_velocity
-    enemy.left -= 4
-    if enemy.left < 0:
-        enemy.right = WIDTH
+    global enemy
+
+    if enemy and player.colliderect(enemy):
+        enemy = None
+    
+    if enemy:
+        enemy.left -= 4
+        if enemy.left < 0:
+            enemy.right = WIDTH
 
     vertical_velocity += gravity
     player.y += vertical_velocity
