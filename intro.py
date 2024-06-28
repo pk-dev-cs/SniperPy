@@ -11,7 +11,8 @@ vertical_velocity = 0
 jump_strength = -15
 gravity = 0.5
 
-enemy = Actor('enemy-128')
+enemy = Actor('enemy')
+enemy.scale = 0.125
 enemy.topright = 1000, GROUND_LEVEL
 enemy.y = GROUND_LEVEL
 
